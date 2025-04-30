@@ -1,0 +1,19 @@
+# Node
+node_modules
+dist/
+pnpm-lock.yaml
+package-lock.json
+
+# Local data
+.env
+.env.local
+
+# App-specific
+data/*
+data/**/*.json
+processed
+
+
+# OS files
+.DS_Store
+Thumbs.db

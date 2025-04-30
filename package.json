@@ -1,0 +1,21 @@
+{
+  "name": "scrapping_nextjs_doc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scrape": "ts-node nextjs.dev.ts",
+    "build": "tsc",
+    "start": "node dist/nextjs.dev.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.7.0",
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "playwright": "^1.51.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
