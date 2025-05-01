@@ -12,19 +12,19 @@ async function scrapeNextJS() {
     // const title = await page.title();
     // console.log("Page title:", title);
 
-    //get the nav element
+    // Get the nav element
     const nav = await page.$("nav.styled-scrollbar");
     if (!nav) {
       throw new Error("nav element not found");
     }
 
-    //get the links elements in the nav
+    // Get the links elements in the nav
     const links = await nav?.$$("a");
     if (!links) {
       throw new Error("link element not found");
     }
 
-    //get the url of the links
+    // Get the url of the links
     const urls = await Promise.all(
       links.map(async (link) => {
         const href = await link.getAttribute("href");
@@ -37,7 +37,7 @@ async function scrapeNextJS() {
         console.log("👀 Visiting", url);
         await page.goto(`https://nextjs.org${url}`, { timeout: 60000 });
 
-        // get the content of div.prose.prose-vercel
+        // Get the content of div.prose.prose-vercel
         const content = await page.$eval(
           "div.prose.prose-vercel",
           (el) => el.textContent
@@ -55,7 +55,7 @@ async function scrapeNextJS() {
 
         const filePath = `./data/nextjs/${encodedUrlForFileName}.txt`;
 
-        // write the content to the file
+        // Write the content to the file
         await fs.writeFile(filePath, content);
 
         console.log("🛟 Save", filePath);
@@ -65,7 +65,7 @@ async function scrapeNextJS() {
       }
     }
   } catch (error) {
-    console.error("Erreur lors du scraping:", error);
+    console.error("Error during scraping:", error);
   } finally {
     await browser.close();
   }

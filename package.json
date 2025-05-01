@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "scrape": "ts-node nextjs.dev.ts",
+    "embedding": "ts-node embedding.ts",
     "build": "tsc",
     "start": "node dist/nextjs.dev.js"
   },
